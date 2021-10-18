@@ -1,6 +1,6 @@
 {
   "name": "sim-rich-text",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Typings for all slate related simplicity projects",
   "main": "index.js",
   "types:": "index.d.ts",
