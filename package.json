@@ -1,5 +1,5 @@
 {
-  "name": "@types/sim-rich-text",
+  "name": "sim-rich-text",
   "version": "1.0.0",
   "description": "Typings for all slate related simplicity projects",
   "main": "index.js",
