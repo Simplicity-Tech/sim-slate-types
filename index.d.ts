@@ -25,9 +25,9 @@ export type TWithUtilsEditor = {
 };
 
 export type TWysiwygEditor = BaseEditor &
-  ReactEditor &
-  TWithUtilsEditor &
-  TWithLinksEditor;
+    ReactEditor &
+    TWithUtilsEditor &
+    TWithLinksEditor;
 
 export type TWysiwygValue = Descendant[];
 
@@ -46,7 +46,19 @@ export type TLinkElement = {
   children: TCustomText[];
 };
 
-export type TCustomElement = TParagraphElement | TLinkElement;
+export type TBulletListElement = {
+  type: "bullet-list";
+  children: TListItemElement[];
+};
+
+export type TListItemElement = {
+  type: "list-item";
+  children: TCustomText[];
+};
+
+export type TCustomElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
+
+export type TBlockType = 'paragraph' | 'link' | 'bullet-list' | 'list-item';
 
 export type TFormattedText = {
   text: string;
