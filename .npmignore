@@ -5,3 +5,4 @@
 .github
 *.tgz
 tsconfig.json
+index.ts

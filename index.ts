@@ -82,6 +82,7 @@ const serializeToString = (value: string): string => {
 };
 
 export {
+  ParagraphChild,
   TWithLinksEditor,
   TWithUtilsEditor,
   TWysiwygEditor,
