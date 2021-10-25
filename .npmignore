@@ -1,0 +1,7 @@
+.vscode
+.idea
+.eslintrc
+.prettierrc
+.github
+*.tgz
+tsconfig.json

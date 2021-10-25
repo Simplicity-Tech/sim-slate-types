@@ -1,0 +1,110 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-native/all"
+  ],
+  "plugins": ["@typescript-eslint", "import", "jest", "prettier", "react-hooks", "prefer-arrow"],
+
+  "env": {
+    "es2021": true,
+    "node": true,
+    "react-native/react-native": true
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".test.ts", "test.tsx"]
+      }
+    }
+  },
+  "rules": {
+    "camelcase": "off",
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "devDependencies": [
+          "**/*.spec.{js,jsx}",
+          "**/*.spec.{ts,tsx}",
+          ".storybook/**",
+          "src/**/*.stories.{ts,tsx}"
+        ]
+      }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-indent": "off",
+    "react/no-unused-prop-types": "error",
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "import/no-named-as-default": "error",
+    "react/no-array-index-key": "warn",
+    "no-void": "error",
+    "react/style-prop-object": "error",
+    "no-nested-ternary": "error",
+    "react/destructuring-assignment": "error",
+    "import/no-absolute-path": "error",
+
+    // Rules below are causing lint command fail
+    "react-native/no-single-element-style-arrays": "off",
+    "react-native/no-raw-text": "off", // https://github.com/Intellicode/eslint-plugin-react-native/issues/270
+    //Rules below are turned off temporarily because enourmous amount of them
+    "import/no-cycle": "warn",
+    "import/no-unresolved": "warn",
+    "global-require": "warn",
+    "no-restricted-syntax": "warn",
+    "no-await-in-loop": "warn",
+    "react-native/no-inline-styles": "warn",
+    "react-native/no-color-literals": "warn"
+  }
+}
