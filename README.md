@@ -21,7 +21,7 @@ After following these steps, the package should auto-deploy to our private NPM r
 To use the package locally (and any other package from our private NPM registry on GitHub), you will need a Personal Access Token (PAT):
 1. Go to GitHub & generate a PAT [here](https://github.com/settings/tokens).
    1. I'd recommend setting the access rights only to `read:packages`, as that would be the only one necessary to access the package.
-2. Create/edit the `.npmrc` file:
+2. Create/edit the `.npmrc` file with this content:
     ```
     //npm.pkg.github.com/:_authToken=<YOUR_TOKEN_GOES_HERE>
     @simplicity-tech:registry=https://npm.pkg.github.com
@@ -34,3 +34,22 @@ To use the package locally (and any other package from our private NPM registry 
     ```
 4. `yarn` to install the dependency.
 
+### In build tools
+To make sure your GitHub workflow has access to our private NPM registry, you will need to modify a few things:
+1. Modify the node setup step to look like this:
+   ```yaml
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@simplicity-tech'
+   ```
+2. Modify the installation step (or possibly any other step that needs access to the registry) to look like this:
+   ```yaml
+      - name: Install NPM packages
+        run: yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   ```
+   The env variable name needs to be EXACTLY `NODE_AUTH_TOKEN`. The `GITHUB_TOKEN` secret is passed automatically by the GitHub action.

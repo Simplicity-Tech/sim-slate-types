@@ -71,11 +71,12 @@ const serializeToString = (value: string): string => {
   const parsedValue = JSON.parse(value) as TWysiwygValue;
   return parsedValue
     ?.flatMap((node) => {
-      const more = [] as string[];
+      const leaves = [] as string[];
+      // We need to use a for..of loop because Node.texts returns a generator.
       for (const leaf of Node.texts(node)) {
-        more.push(Node.string(leaf[0]));
+        leaves.push(Node.string(leaf[0]));
       }
-      return more;
+      return leaves;
     })
     .filter((strNode) => !!strNode)
     .join(' ');
