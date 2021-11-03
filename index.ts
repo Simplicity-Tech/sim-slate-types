@@ -30,11 +30,11 @@ type TWysiwygValue = Descendant[];
 
 type TTextFormat = 'bold' | 'italic' | 'futureLink';
 
-type ParagraphChild = TCustomText | TLinkElement;
+type LeafChild = TCustomText | TLinkElement;
 
 type TParagraphElement = {
   type: 'paragraph';
-  children: ParagraphChild[];
+  children: LeafChild[];
 };
 
 type TLinkElement = {
@@ -50,7 +50,7 @@ type TBulletListElement = {
 
 type TListItemElement = {
   type: 'list-item';
-  children: TCustomText[];
+  children: LeafChild[];
 };
 
 type TCustomElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
@@ -83,7 +83,7 @@ const serializeToString = (value: string): string => {
 };
 
 export {
-  ParagraphChild,
+  LeafChild,
   TWithLinksEditor,
   TWithUtilsEditor,
   TWysiwygEditor,
