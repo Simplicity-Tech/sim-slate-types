@@ -53,9 +53,28 @@ type TListItemElement = {
   children: LeafChild[];
 };
 
-type TCustomElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
+type TImageElement = {
+  type: 'image';
+  source: string;
+};
 
-type TBlockType = 'paragraph' | 'link' | 'bullet-list' | 'list-item';
+type TVideoElement = {
+  type: 'video';
+  source: string;
+};
+
+type TCustomElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement | TImageElement | TVideoElement;
+
+type TBlockTypeToElement = {
+  'paragraph': TParagraphElement;
+  'link': TLinkElement;
+  'bullet-list': TBulletListElement;
+  'list-item': TListItemElement;
+  'image': TImageElement;
+  'video': TVideoElement;
+};
+
+type TBlockType = keyof TBlockTypeToElement;
 
 type TFormattedText = {
   text: string;
@@ -93,8 +112,11 @@ export {
   TLinkElement,
   TBulletListElement,
   TListItemElement,
+  TImageElement,
+  TVideoElement,
   TCustomElement,
   TBlockType,
+  TBlockTypeToElement,
   TFormattedText,
   TCustomText,
   serializeToString,
