@@ -63,15 +63,19 @@ type TVideoElement = {
   source: string;
 };
 
-type TCustomElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement | TImageElement | TVideoElement;
+type TMediaElement = TImageElement | TVideoElement;
+
+type TTextElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
+
+type TCustomElement = TTextElement | TMediaElement;
 
 type TBlockTypeToElement = {
-  'paragraph': TParagraphElement;
-  'link': TLinkElement;
+  paragraph: TParagraphElement;
+  link: TLinkElement;
   'bullet-list': TBulletListElement;
   'list-item': TListItemElement;
-  'image': TImageElement;
-  'video': TVideoElement;
+  image: TImageElement;
+  video: TVideoElement;
 };
 
 type TBlockType = keyof TBlockTypeToElement;
@@ -119,5 +123,7 @@ export {
   TBlockTypeToElement,
   TFormattedText,
   TCustomText,
+  TTextElement,
+  TMediaElement,
   serializeToString,
 };
