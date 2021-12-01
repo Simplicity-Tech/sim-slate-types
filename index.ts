@@ -56,11 +56,13 @@ type TListItemElement = {
 type TImageElement = {
   type: 'image';
   source: string;
+  children: TCustomText[];
 };
 
 type TVideoElement = {
   type: 'video';
   source: string;
+  children: TCustomText[];
 };
 
 type TMediaElement = TImageElement | TVideoElement;
@@ -105,6 +107,13 @@ const serializeToString = (value: string): string => {
     .join(' ');
 };
 
+const EMPTY_CHILDREN: TCustomText[] = [
+  {
+    text: '',
+    type: 'text',
+  },
+];
+
 export {
   LeafChild,
   TWithLinksEditor,
@@ -126,4 +135,5 @@ export {
   TTextElement,
   TMediaElement,
   serializeToString,
+  EMPTY_CHILDREN,
 };
