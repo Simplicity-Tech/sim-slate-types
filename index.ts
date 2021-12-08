@@ -98,8 +98,20 @@ const serializeToString = (value: string): string => {
     ?.flatMap((node) => {
       const leaves = [] as string[];
       // We need to use a for..of loop because Node.texts returns a generator.
-      for (const leaf of Node.texts(node)) {
-        leaves.push(Node.string(leaf[0]));
+      switch (node.type) {
+        case 'video': {
+          leaves.push('▶️');
+          break;
+        }
+        case 'image': {
+          leaves.push('🖼️');
+          break;
+        }
+        default: {
+          for (const leaf of Node.texts(node)) {
+            leaves.push(Node.string(leaf[0]));
+          }
+        }
       }
       return leaves;
     })
