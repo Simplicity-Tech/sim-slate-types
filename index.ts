@@ -65,11 +65,30 @@ type TVideoElement = {
   children: TCustomText[];
 };
 
+type TTableCellElement = {
+  type: 'table-cell';
+  children: TTableCellChild[];
+};
+
+type TTableRowElement = {
+  type: 'table-row';
+  children: TTableCellElement[];
+};
+
+type TTableElement = {
+  type: 'table';
+  children: TTableRowElement[];
+};
+
+type TCustomText = TFormattedText;
+
 type TMediaElement = TImageElement | TVideoElement;
 
 type TTextElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
 
 type TCustomElement = TTextElement | TMediaElement;
+
+type TTableCellChild = TCustomText | TTextElement;
 
 type TBlockTypeToElement = {
   paragraph: TParagraphElement;
@@ -78,6 +97,7 @@ type TBlockTypeToElement = {
   'list-item': TListItemElement;
   image: TImageElement;
   video: TVideoElement;
+  table: TTableElement;
 };
 
 type TBlockType = keyof TBlockTypeToElement;
@@ -89,8 +109,6 @@ type TFormattedText = {
   futureLink?: boolean;
   type: 'text';
 };
-
-type TCustomText = TFormattedText;
 
 const serializeToString = (value: string): string => {
   const parsedValue = JSON.parse(value) as TWysiwygValue;
@@ -146,6 +164,9 @@ export {
   TCustomText,
   TTextElement,
   TMediaElement,
+  TTableElement,
+  TTableRowElement,
+  TTableCellElement,
   serializeToString,
   EMPTY_CHILDREN,
 };
