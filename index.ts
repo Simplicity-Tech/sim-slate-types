@@ -86,9 +86,11 @@ type TMediaElement = TImageElement | TVideoElement;
 
 type TTextElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
 
-type TCustomElement = TTextElement | TMediaElement;
-
 type TTableCellChild = TCustomText | TTextElement;
+
+type TTableElements = TTableElement | TTableRowElement | TTableCellElement;
+
+type TCustomElement = TTextElement | TMediaElement | TTableElement;
 
 type TBlockTypeToElement = {
   paragraph: TParagraphElement;
@@ -157,6 +159,7 @@ export {
   TListItemElement,
   TImageElement,
   TVideoElement,
+  TTableElements,
   TCustomElement,
   TBlockType,
   TBlockTypeToElement,

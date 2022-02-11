@@ -1,6 +1,6 @@
 {
   "name": "@simplicity-tech/sim-slate-types",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Typings for all slate related simplicity projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
