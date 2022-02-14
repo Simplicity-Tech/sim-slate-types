@@ -100,6 +100,8 @@ type TBlockTypeToElement = {
   image: TImageElement;
   video: TVideoElement;
   table: TTableElement;
+  'table-row': TTableRowElement;
+  'table-cell': TTableCellElement;
 };
 
 type TBlockType = keyof TBlockTypeToElement;
