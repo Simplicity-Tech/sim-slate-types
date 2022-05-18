@@ -86,7 +86,7 @@ type TMediaElement = TImageElement | TVideoElement;
 
 type TTextElement = TParagraphElement | TLinkElement | TBulletListElement | TListItemElement;
 
-type TTableCellChild = TCustomText | TTextElement | TMediaElement;
+type TTableCellChild = TCustomText | TTextElement | TMediaElement | TTableElement;
 
 type TTableElements = TTableElement | TTableRowElement | TTableCellElement;
 
