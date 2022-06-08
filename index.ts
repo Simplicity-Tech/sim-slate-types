@@ -122,7 +122,7 @@ const serializeToString = (value: string): string => {
       // We need to use a for..of loop because Node.texts returns a generator.
       switch (node.type) {
         case 'video': {
-          leaves.push('▶️');
+          leaves.push('');
           break;
         }
         case 'image': {
