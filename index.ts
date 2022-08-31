@@ -30,7 +30,7 @@ type TWysiwygValue = Descendant[];
 
 type TTextFormat = 'bold' | 'italic' | 'futureLink';
 
-type LeafChild = TCustomText | TLinkElement;
+type LeafChild = TCustomText | TLinkElement | TBulletListElement;
 
 type TParagraphElement = {
   type: 'paragraph';
