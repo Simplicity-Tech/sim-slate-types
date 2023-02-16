@@ -126,7 +126,7 @@ const serializeToString = (value: string): string => {
           break;
         }
         case 'image': {
-          leaves.push('🖼️');
+          leaves.push('');
           break;
         }
         default: {
