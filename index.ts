@@ -90,7 +90,7 @@ type TTableCellChild = TCustomText | TTextElement | TMediaElement | TTableElemen
 
 type TTableElements = TTableElement | TTableRowElement | TTableCellElement;
 
-type TCustomElement = TTextElement | TMediaElement | TTableElement;
+type TCustomElement = TTextElement | TMediaElement | TTableElements;
 
 type TBlockTypeToElement = {
   paragraph: TParagraphElement;
